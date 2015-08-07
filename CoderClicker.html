@@ -1,0 +1,34 @@
+<head>
+  <title>CoderClicker</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+  {{> loginButtons}}
+  {{> hello}}
+</body>
+
+<template name="hello">
+  <table class="leaderboard table table-striped">
+  	<thead>
+  	  <th>Username</th><th>Money</th><th>Dollars per Second</th>
+  	</thead>
+
+  	{{#each players}}
+  	  {{> player}}
+  	{{/each}}
+  </table>
+  <h2>You ({{user.username}}) have ${{user.money}} and make ${{user.rate}} per second!</h2>
+  <input type="button" class="code btn span4" value="Write line of code ($25)" />
+  {{#each items}}
+  	<input type="button" class="buy btn span4" id="{{cost}}" value="Buy {{name}} (${{cost}})" />
+  {{/each}}
+</template>
+
+<template name="player">
+  <tr class="player">
+  	<td class="name">{{username}}</td>
+  	<td class="money">${{money}}</td>
+  	<td class="rate">{{rate}} dps</td>
+  </tr>
+</template>
