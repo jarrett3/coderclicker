@@ -41,7 +41,7 @@ if (Meteor.isServer) {
   Meteor.publish("userData", function () {
     return Meteor.users.find({}, {sort: {'money': -1}});
   });
-
+  
   Accounts.onCreateUser(function (options, user) {
     user.money = 0;
     user.rate = 0;
